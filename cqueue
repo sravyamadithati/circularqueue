@@ -1,0 +1,67 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    LinkedList list=new LinkedList();
+	    list.dequeue();list.show();
+	}
+}
+class Node
+{
+    int data;
+    Node link;
+}
+class LinkedList
+{
+  Node front,rear;
+  public void enqueue(int data)
+  {
+      Node temp=new Node();
+      temp.data=data;
+      if(front==null)
+      {
+         front=temp;
+      }
+      else
+      {
+          rear.link=temp;
+      }
+      rear=temp;
+      rear.link=front;
+  }
+  public void dequeue()
+  {
+      
+      int value;
+      if(front==null)
+      System.out.println("empty");
+      else if(front==rear)
+      {
+          value=front.data;
+          front=null;rear=null;
+      }
+      else{
+          Node temp=front;
+      value=temp.data;
+      front=front.link;
+      rear.link=front;
+          
+      }
+  }
+  public void show()
+  {
+      if(front==null)
+      {
+      System.out.println("Empty");
+      }
+      else
+      {
+      Node temp=front;
+      while(temp.link!=front)
+      {
+          System.out.println(temp.data);
+          temp=temp.link;
+      }          System.out.println(temp.data);
+      }
+
+  }
+}
